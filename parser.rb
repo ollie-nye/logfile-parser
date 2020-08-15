@@ -11,13 +11,15 @@ require 'queries/revisited_routes'
 require 'queries/unique_visitors'
 require 'queries/unique_visitors_for'
 require 'queries/visits_per_visitor'
+require 'queries/history_for'
 
 queries = {
   popular_routes: { query: PopularRoutes, header: 'Popular routes' },
   revisited_routes: { query: RevisitedRoutes, header: 'Routes revisited by at least one source' },
   unique_visitors: { query: UniqueVisitors, header: 'Unique visitors for all routes' },
   unique_visitors_for: { query: UniqueVisitorsFor, header: 'Unique visitors for a given route' },
-  visits_per_visitors: { query: VisitsPerVisitor, header: 'Visits per visitor' }
+  visits_per_visitor: { query: VisitsPerVisitor, header: 'Visits per visitor' },
+  history_for: { query: HistoryFor, header: 'History for a given visitor' }
 }
 
 options = {}
