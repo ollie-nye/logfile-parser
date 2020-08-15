@@ -26,16 +26,16 @@ options = {}
 
 OptionParser.new do |opt|
   opt.banner = 'Usage: parser.rb [-p] [-r] [-u ROUTE] [-v] file1 file2 ...'
-  opt.on('-p', '--popular_routes', 'Run the Popular Routes query') { options[:popular_routes] = true }
-  opt.on('-r', '--revisited_routes', 'Run the Revisited Routes query') { options[:revisited_routes] = true }
-  opt.on('-u', '--unique_visitors', 'Run the Unique Visitors for all routes query') { options[:unique_visitors] = true }
-  opt.on('-f', '--unique_visitors_for ROUTE', 'Run the Unique Visitors for a given route query') { |r| options[:unique_visitors_for] = r }
-  opt.on('-v', '--visits_per_visitor', 'Run the Revisits per Visitor query') { options[:visits_per_visitors] = true }
-end.parse!
+  opt.on('-p', '--popular_routes', 'Run the Popular Routes query')
+  opt.on('-r', '--revisited_routes', 'Run the Revisited Routes query')
+  opt.on('-u', '--unique_visitors', 'Run the Unique Visitors for all routes query')
+  opt.on('-f', '--unique_visitors_for ROUTE', 'Run the Unique Visitors query for a given route')
+  opt.on('-v', '--visits_per_visitor', 'Run the Revisits per Visitor query')
+  opt.on('-i', '--history_for VISITOR', 'Run the History For query for a given visitor')
+end.parse!(into: options)
 
 if options == {}
   puts 'Please choose one or more queries to run'
-  puts
   exit(1)
 end
 
