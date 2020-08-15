@@ -1,11 +1,11 @@
 # frozen_string_literal: true
 
 require 'queries/visits_per_visitor'
+require 'for_queries'
 
 describe VisitsPerVisitor do
-  let(:filename) { 'spec/fixtures/webserver_test.log' }
-  let(:visits) { Visits.new }
-  let(:result) { described_class.query(visits, nil) }
+  include_context 'for queries'
+
   let(:expected_output) do
     "126.318.035.038: 1 visits, 1 unique routes\n" \
     "722.247.931.582: 1 visits, 1 unique routes\n" \
@@ -14,10 +14,6 @@ describe VisitsPerVisitor do
     "184.123.665.067: 2 visits, 2 unique routes\n" \
     "235.313.352.950: 1 visits, 1 unique routes\n" \
     "444.701.448.104: 2 visits, 2 unique routes\n"
-  end
-
-  before do
-    visits.parse(filename)
   end
 
   describe 'self.query' do

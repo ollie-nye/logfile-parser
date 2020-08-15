@@ -1,19 +1,14 @@
 # frozen_string_literal: true
 
 require 'queries/history_for'
+require 'for_queries'
 
 describe HistoryFor do
-  let(:filename) { 'spec/fixtures/webserver_test.log' }
-  let(:visits) { Visits.new }
-  let(:result) { described_class.query(visits, visitor) }
-
-  before do
-    visits.parse(filename)
-  end
+  include_context 'for queries'
 
   describe 'self.query' do
     context 'when the visitor exists' do
-      let(:visitor) { '184.123.665.067' }
+      let(:query_arg) { '184.123.665.067' }
       let(:expected_output) do
         " - /contact\n" \
         " - /home\n"
@@ -25,11 +20,11 @@ describe HistoryFor do
     end
 
     context 'when the visitor does not exist' do
-      let(:visitor) { '001.002.003.004' }
+      let(:query_arg) { '001.002.003.004' }
       let(:expected_output) { '' }
 
       it 'does not raise an error' do
-        expect { described_class.query(visits, visitor) }.not_to raise_error
+        expect { described_class.query(visits, query_arg) }.not_to raise_error
       end
 
       it 'returns no history' do

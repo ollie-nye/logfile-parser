@@ -1,11 +1,11 @@
 # frozen_string_literal: true
 
 require 'queries/unique_visitors'
+require 'for_queries'
 
 describe UniqueVisitors do
-  let(:filename) { 'spec/fixtures/webserver_test.log' }
-  let(:visits) { Visits.new }
-  let(:result) { described_class.query(visits, nil) }
+  include_context 'for queries'
+
   let(:expected_output) do
     "1 unique visitors for /about/2\n" \
     "1 unique visitors for /contact\n" \
@@ -13,10 +13,6 @@ describe UniqueVisitors do
     "1 unique visitors for /help_page/2\n" \
     "2 unique visitors for /home\n" \
     "1 unique visitors for /index\n"
-  end
-
-  before do
-    visits.parse(filename)
   end
 
   describe 'self.query' do
