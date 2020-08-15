@@ -54,5 +54,5 @@ options.each do |flag, argument|
   result = query[:query].query(visits, argument)
   puts query[:header]
   puts result
-  puts "\n\n"
+  puts "\n"
 end
