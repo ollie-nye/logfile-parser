@@ -73,6 +73,6 @@ Style/SingleArgumentDig:
 Style/StringConcatenation:
   Enabled: true
 
-Metrics:
+Metrics/BlockLength:
   Exclude:
-    - 'spec/lib/visit_spec.rb'
+    - 'spec/**/*.rb'
