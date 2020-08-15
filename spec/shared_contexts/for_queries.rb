@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 RSpec.shared_context 'for queries' do
   let(:filename) { 'spec/fixtures/webserver_test.log' }
   let(:visits) { Visits.new }

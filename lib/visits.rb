@@ -26,12 +26,7 @@ class Visits
   # Returns a hash of visits where the key is a unique route and the value is
   # all visitors that visited that route
   def by_route
-    grouped_visits = {}
-    visits.each do |visit|
-      grouped_visits[visit.route] ||= []
-      grouped_visits[visit.route] << visit.visitor
-    end
-    grouped_visits
+    group_by(subject: :route, property: :visitor)
   end
 
   # Returns a collection of visits from the given visitor
@@ -42,11 +37,20 @@ class Visits
   # Returns a hash of visits where the key is a unique visitor and the value is
   # all routes visited by that visitor
   def by_visitor
-    grouped_visits = {}
-    visits.each do |visit|
-      grouped_visits[visit.visitor] ||= []
-      grouped_visits[visit.visitor] << visit.route
+    group_by(subject: :visitor, property: :route)
+  end
+
+  private
+
+  # Groups visits by a given subject, returning an array of values obtained from
+  # the given property
+  def group_by(subject:, property:)
+    {}.tap do |grouped_visits|
+      visits.each do |visit|
+        visitor = visit.public_send(subject)
+        grouped_visits[visitor] ||= []
+        grouped_visits[visitor] << visit.public_send(property)
+      end
     end
-    grouped_visits
   end
 end
