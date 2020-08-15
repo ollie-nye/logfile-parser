@@ -1,3 +1,12 @@
 detectors:
   TooManyStatements:
     max_statements: 8
+
+  DuplicateMethodCall:
+    exclude:
+      - PopularRoutes#self.query
+      - Visits#group_by
+
+  FeatureEnvy:
+    exclude:
+      - Visits#group_by
