@@ -7,11 +7,11 @@ describe HistoryFor do
 
   describe 'self.query' do
     context 'when the visitor exists' do
-      let(:query_arg) { '184.123.665.067' }
+      let(:query_arg) { :'184.123.665.067' }
       let(:expected_output) do
         [
-          ' - /contact',
-          ' - /home'
+          '   - /contact',
+          '   - /home'
         ]
       end
 
@@ -19,7 +19,7 @@ describe HistoryFor do
     end
 
     context 'when the visitor does not exist' do
-      let(:query_arg) { '001.002.003.004' }
+      let(:query_arg) { :'001.002.003.004' }
 
       it 'does not raise an error' do
         expect { described_class.query(visits, query_arg) }.not_to raise_error

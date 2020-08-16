@@ -8,8 +8,9 @@ class Visit
     visit = log_line.split(' ')
     raise "Malformed log line: #{log_line}" unless visit.length == 2
 
-    @route, visitor = visit
-    @visitor = visitor if valid_ip_address?(visitor)
+    route, visitor = visit
+    @route = route.to_sym
+    @visitor = visitor.to_sym if valid_ip_address?(visitor)
   end
 
   private

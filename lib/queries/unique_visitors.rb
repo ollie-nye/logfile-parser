@@ -6,7 +6,7 @@ require 'query'
 class UniqueVisitors < Query
   def query
     visits.by_route.sort.each do |route, visitors|
-      logger.info "#{visitors.uniq.count} unique visitors for #{route}"
+      logger.info "  #{visitors.uniq.count} unique visitors for #{route}"
     end
   end
 end

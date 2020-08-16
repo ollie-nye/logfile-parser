@@ -18,9 +18,9 @@ class Visits
     end
   end
 
-  # Returns a collection of visits that match the given route
+  # Returns a collection of visits for the given route
   def for_route(route)
-    visits.select { |visit| visit.route.match(route) }
+    visits.select { |visit| visit.route == route }
   end
 
   # Returns a hash of visits where the key is a unique route and the value is

@@ -65,5 +65,5 @@ end
 options.each do |flag, argument|
   query = queries[flag]
   logger.info query[:header]
-  query[:query].query(visits, argument, logger: logger)
+  query[:query].query(visits, argument.to_s.to_sym, logger: logger)
 end

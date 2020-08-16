@@ -6,6 +6,6 @@ require 'query'
 class UniqueVisitorsFor < Query
   def query
     count = visits.by_route[argument]&.uniq&.count || 0
-    logger.info "#{count} unique visitors for #{argument}"
+    logger.info "  #{count} unique visitors for #{argument}"
   end
 end

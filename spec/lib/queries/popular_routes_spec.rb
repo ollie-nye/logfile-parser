@@ -7,12 +7,12 @@ describe PopularRoutes do
 
   let(:expected_output) do
     [
-      '/help_page/1: 4 visits, 3 unique visitors',
-      '/home: 2 visits, 2 unique visitors',
-      '/about/2: 1 visits, 1 unique visitors',
-      '/contact: 1 visits, 1 unique visitors',
-      '/help_page/2: 1 visits, 1 unique visitors',
-      '/index: 1 visits, 1 unique visitors'
+      '  /help_page/1: 4 visits, 3 unique visitors',
+      '  /home: 2 visits, 2 unique visitors',
+      '  /about/2: 1 visits, 1 unique visitors',
+      '  /contact: 1 visits, 1 unique visitors',
+      '  /help_page/2: 1 visits, 1 unique visitors',
+      '  /index: 1 visits, 1 unique visitors'
     ]
   end
 

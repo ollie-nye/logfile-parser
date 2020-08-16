@@ -27,28 +27,18 @@ describe Visits do
       visits.parse(filename)
     end
 
-    context 'with an absolute route' do
-      let(:route) { '/help_page/1' }
+    let(:route) { :'/help_page/1' }
 
-      it 'returns 4 visits for /help_page/1' do
-        expect(visits.for_route(route).length).to eq 4
-      end
-    end
-
-    context 'with a regex route' do
-      let(:route) { %r{/help_page} }
-
-      it 'returns 5 visits for %r{/help_page}' do
-        expect(visits.for_route(route).length).to eq 5
-      end
+    it 'returns 4 visits for /help_page/1' do
+      expect(visits.for_route(route).length).to eq 4
     end
   end
 
   describe 'by_route' do
     let(:expected_visitors) do
-      ['126.318.035.038', '722.247.931.582', '646.865.545.408', '646.865.545.408']
+      %i[126.318.035.038 722.247.931.582 646.865.545.408 646.865.545.408]
     end
-    let(:route) { '/help_page/1' }
+    let(:route) { :'/help_page/1' }
 
     before do
       visits.parse(filename)
@@ -68,7 +58,7 @@ describe Visits do
   end
 
   describe 'for_visitor' do
-    let(:visitor) { '184.123.665.067' }
+    let(:visitor) { :'184.123.665.067' }
 
     before do
       visits.parse(filename)
@@ -80,8 +70,8 @@ describe Visits do
   end
 
   describe 'by_visitor' do
-    let(:expected_routes) { ['/contact', '/home'] }
-    let(:visitor) { '184.123.665.067' }
+    let(:expected_routes) { %i[/contact /home] }
+    let(:visitor) { :'184.123.665.067' }
 
     before do
       visits.parse(filename)

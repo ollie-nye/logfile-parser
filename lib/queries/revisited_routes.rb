@@ -11,7 +11,7 @@ class RevisitedRoutes < Query
 
       revisitors = revisits.length
       revisit_count = (revisits.values.reduce(&:+) || 0) - revisitors
-      logger.info "#{route}: #{revisitors} revisitors, #{revisit_count} revisits"
+      logger.info "  #{route}: #{revisitors} revisitors, #{revisit_count} revisits"
     end
   end
 

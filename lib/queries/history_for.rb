@@ -6,7 +6,7 @@ require 'query'
 class HistoryFor < Query
   def query
     visits.by_visitor[argument]&.each do |route|
-      logger.info " - #{route}"
+      logger.info "   - #{route}"
     end
   end
 end

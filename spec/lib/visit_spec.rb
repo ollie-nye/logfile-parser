@@ -17,12 +17,12 @@ describe Visit do
           expect { described_class.new(log_line) }.not_to raise_error
         end
 
-        it 'provides the route on the route method' do
-          expect(visit.route).to eq(route)
+        it 'provides the route on the route method as a symbol' do
+          expect(visit.route).to eq(route.to_sym)
         end
 
-        it 'provides the visitor on the visitor method' do
-          expect(visit.visitor).to eq(visitor)
+        it 'provides the visitor on the visitor method as a symbol' do
+          expect(visit.visitor).to eq(visitor.to_sym)
         end
       end
 

@@ -7,12 +7,12 @@ describe UniqueVisitors do
 
   let(:expected_output) do
     [
-      '1 unique visitors for /about/2',
-      '1 unique visitors for /contact',
-      '3 unique visitors for /help_page/1',
-      '1 unique visitors for /help_page/2',
-      '2 unique visitors for /home',
-      '1 unique visitors for /index'
+      '  1 unique visitors for /about/2',
+      '  1 unique visitors for /contact',
+      '  3 unique visitors for /help_page/1',
+      '  1 unique visitors for /help_page/2',
+      '  2 unique visitors for /home',
+      '  1 unique visitors for /index'
     ]
   end
 
