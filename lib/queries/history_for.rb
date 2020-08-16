@@ -1,12 +1,12 @@
 # frozen_string_literal: true
 
+require 'query'
+
 # Returns the history for a particular visitor, in the order it appeared in the log
-class HistoryFor
-  def self.query(visits, visitor)
-    output = ''
-    visits.by_visitor[visitor]&.each do |route|
-      output += " - #{route}\n"
+class HistoryFor < Query
+  def query
+    visits.by_visitor[argument]&.each do |route|
+      logger.info " - #{route}"
     end
-    output
   end
 end

@@ -1,13 +1,13 @@
 # frozen_string_literal: true
 
+require 'query'
+
 # Returns all routes, sorted by most visits
-class PopularRoutes
-  def self.query(visits, _)
-    output = ''
+class PopularRoutes < Query
+  def query
     sorted_by_visits = visits.by_route.sort_by { |route, visitors| [-visitors.count, route] }
-    sorted_by_visits.map do |route, visitors|
-      output += "#{route}: #{visitors.count} visits, #{visitors.uniq.count} unique visitors\n"
+    sorted_by_visits.each do |route, visitors|
+      logger.info "#{route}: #{visitors.count} visits, #{visitors.uniq.count} unique visitors"
     end
-    output
   end
 end

@@ -1,9 +1,11 @@
 # frozen_string_literal: true
 
+require 'query'
+
 # Returns the number of unique visitors for a given route
-class UniqueVisitorsFor
-  def self.query(visits, route)
-    count = visits.by_route[route]&.uniq&.count || 0
-    "#{count} unique visitors for #{route}"
+class UniqueVisitorsFor < Query
+  def query
+    count = visits.by_route[argument]&.uniq&.count || 0
+    logger.info "#{count} unique visitors for #{argument}"
   end
 end
