@@ -5,10 +5,10 @@ files and runs simple queries on the data to produce insights from the raw logs.
 
 ## Running the tool
 
-The following output was produced by running `./parser.rb --help`
+The following output was produced by running `bin/parser.rb --help`
 
 ```
-Usage: parser.rb [-p] [-r] [-u ROUTE] [-v] file1 file2 ...
+Usage: bin/parser.rb [-p] [-r] [-u ROUTE] [-v] file1 file2 ...
     -p, --popular_routes             Run the Popular Routes query
     -r, --revisited_routes           Run the Revisited Routes query
     -u, --unique_visitors            Run the Unique Visitors for all routes query

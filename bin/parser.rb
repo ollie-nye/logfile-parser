@@ -28,7 +28,7 @@ queries = {
 options = {}
 
 command_parser = OptionParser.new do |opt|
-  opt.banner = 'Usage: ./parser.rb [-p] [-r] [-u ROUTE] [-v] [-h VISITOR] file1 file2 ...'
+  opt.banner = 'Usage: bin/parser.rb [-p] [-r] [-u ROUTE] [-v] [-h VISITOR] file1 file2 ...'
   opt.on('-p', '--popular_routes', 'Run the Popular Routes query')
   opt.on('-r', '--revisited_routes', 'Run the Revisited Routes query')
   opt.on('-u', '--unique_visitors', 'Run the Unique Visitors for all routes query')
