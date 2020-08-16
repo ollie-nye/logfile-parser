@@ -4,9 +4,14 @@ detectors:
 
   DuplicateMethodCall:
     exclude:
-      - PopularRoutes#self.query
+      - PopularRoutes#query
       - Visits#group_by
 
   FeatureEnvy:
     exclude:
+      - PopularRoutes#query
       - Visits#group_by
+
+  UtilityFunction:
+    exclude:
+      - RevisitedRoutes#revisited_visitors
